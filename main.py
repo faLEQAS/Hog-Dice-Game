@@ -4,7 +4,7 @@ import random
 def get_input():
 	times = input("how many times do u want to play\n")
 	while times.isalpha() or int(times) not in range(0,11):
-		times = input("invalid choice, please pick a number from 1 to 10\n")
+		times = input("invalid choice, please pick a number from 0 to 10\n")
 	return int(times);
 
 def roll_dice():
