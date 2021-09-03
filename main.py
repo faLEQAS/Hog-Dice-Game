@@ -21,7 +21,7 @@ def get_score(listofrolls):
 
 	for i in listofrolls:
 		if i == 1:
-			score = 0
+			score = 1
 			break
 
 		score += i
@@ -59,10 +59,8 @@ def check_for_score_swap(totalplayer1, totalplayer2):
 def zero_times(totalplayer1, totalplayer2, player): #function for handling when the player chooses to roll 0 times, couldn't think of a better name
 	total = totalplayer2 if player == "1" else totalplayer1
 	if len(str(total)) == 2:
-		print("zero timing")
 		total = list(str(total))
 		minnum = min(total)
-		print(f"Minimum: {minnum}")
 		score = 10 - int(minnum)
 		return score
 	score = 10
