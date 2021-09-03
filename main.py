@@ -49,9 +49,15 @@ def get_first_player():
 
 	return player;
 
-def check_for_score_swap(totalplayer1, totalplayer2):
-	if str(totalplayer1)[0] == str(totalplayer2)[::-1][0] and len(str(totalplayer1)) != 1 and len(str(totalplayer2)) != 1:
-		print("SCORES SWAPPED")
+def check_for_score_swap(totalplayer1, totalplayer2, player):
+	if player == "1":
+		currentplayer = totalplayer1
+		opponentplayer = totalplayer2
+	else:
+		currentplayer = totalplayer2
+		opponentplayer = totalplayer1
+	if str(currentplayer)[0] == str(opponentplayer)[::-1][0] and len(str(currentplayer)) != 1 and len(str(opponentplayer)) != 1:
+		print("TOTAL SCORES SWAPPED")
 		return totalplayer2, totalplayer1
 
 	return totalplayer1, totalplayer2
@@ -97,7 +103,7 @@ def main():
 		print(f"\nScore: {score}\n")
 		totalplayer1, totalplayer2 = add_to_score(player, score, totalplayer1, totalplayer2)
 
-		totalplayer1, totalplayer2 = check_for_score_swap(totalplayer1, totalplayer2)
+		totalplayer1, totalplayer2 = check_for_score_swap(totalplayer1, totalplayer2, player)
 		player = switch_player(player)
 
 	print(f"\nPlayer 1: {totalplayer1}\nPlayer 2: {totalplayer2}\n")
